@@ -208,12 +208,12 @@ export default function Products() {
                                         <Star className="text-yellow-400 fill-current" size={14} />
                                         <span className="text-sm font-semibold text-gray-900 dark:text-white">{product.rating.average.toFixed(1)}</span>
                                     </div>
-                                    {product.inventory.stock < 10 && product.inventory.stock > 0 && (
+                                    {product.inventory < 10 && product.inventory > 0 && (
                                         <div className="absolute top-3 left-3">
-                                            <span className="badge-error text-xs">Only {product.inventory.stock} left!</span>
+                                            <span className="badge-error text-xs">Only {product.inventory} left!</span>
                                         </div>
                                     )}
-                                    {product.inventory.stock === 0 && (
+                                    {product.inventory === 0 && (
                                         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                                             <span className="badge-error">Out of Stock</span>
                                         </div>
@@ -246,14 +246,14 @@ export default function Products() {
 
                                 <button
                                     onClick={() => handleAddToCart(product._id)}
-                                    disabled={product.inventory.stock === 0}
-                                    className={`w-full flex items-center justify-center space-x-2 py-2.5 rounded-lg font-semibold transition-all ${product.inventory.stock === 0
-                                            ? 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
-                                            : 'btn-primary'
+                                    disabled={product.inventory === 0}
+                                    className={`w-full flex items-center justify-center space-x-2 py-2.5 rounded-lg font-semibold transition-all ${product.inventory === 0
+                                        ? 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                                        : 'btn-primary'
                                         }`}
                                 >
                                     <ShoppingCart size={18} />
-                                    <span>{product.inventory.stock === 0 ? 'Out of Stock' : 'Add to Cart'}</span>
+                                    <span>{product.inventory === 0 ? 'Out of Stock' : 'Add to Cart'}</span>
                                 </button>
                             </div>
                         </div>

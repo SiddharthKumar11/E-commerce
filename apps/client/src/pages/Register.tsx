@@ -29,7 +29,7 @@ export default function Register() {
             setUser(user);
 
             toast.success('Welcome to E-Shop!');
-            navigate('/products');
+            navigate('/');
         } catch (error: any) {
             toast.error(error.response?.data?.message || 'Registration failed');
         } finally {

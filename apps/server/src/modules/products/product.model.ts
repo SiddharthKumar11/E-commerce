@@ -1,4 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
+import './category.model'; // Ensure Schema is registered
 
 export interface IProduct extends Document {
     name: string;
@@ -121,8 +122,8 @@ const productSchema = new Schema<IProduct>(
 );
 
 // Indexes for performance
-productSchema.index({ slug: 1 });
 productSchema.index({ category: 1 });
+
 productSchema.index({ price: 1 });
 productSchema.index({ isActive: 1, isFeatured: 1 });
 productSchema.index({ tags: 1 });

@@ -7,6 +7,13 @@ import morgan from 'morgan';
 import errorHandler from './middleware/error.middleware';
 import Logger from './core/Logger';
 
+// Models (Register schemas)
+import './modules/auth/user.model';
+import './modules/products/category.model';
+import './modules/products/product.model';
+import './modules/cart/cart.model';
+import './modules/orders/order.model';
+
 // Routes
 import authRoutes from './modules/auth/auth.routes';
 import productRoutes from './modules/products/product.routes';

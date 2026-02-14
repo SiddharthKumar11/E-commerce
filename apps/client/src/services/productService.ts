@@ -8,16 +8,21 @@ export interface Product {
     price: number;
     compareAtPrice?: number;
     images: string[];
-    inventory: number;
+    inventory: number;  // Backend stores as number
     category: {
         _id: string;
         name: string;
         slug: string;
-    };
+    };  // Backend populates category object
     rating: {
         average: number;
         count: number;
     };
+    sku: string;
+    isActive: boolean;
+    isFeatured?: boolean;
+    createdAt?: string;
+    updatedAt?: string;
 }
 
 export const productService = {

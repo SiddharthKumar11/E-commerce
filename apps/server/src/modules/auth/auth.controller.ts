@@ -128,3 +128,18 @@ export const logout = async (req: Request, res: Response, next: NextFunction) =>
         next(error);
     }
 };
+
+export const me = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const user = (req as AuthRequest).user;
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                user,
+            },
+        });
+    } catch (error) {
+        next(error);
+    }
+};

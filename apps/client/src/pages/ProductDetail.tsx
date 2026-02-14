@@ -40,7 +40,7 @@ export default function ProductDetail() {
     };
 
     const incrementQuantity = () => {
-        if (product && quantity < product.inventory.stock) {
+        if (product && quantity < product.inventory) {
             setQuantity(quantity + 1);
         }
     };
@@ -117,8 +117,8 @@ export default function ProductDetail() {
                                     key={index}
                                     onClick={() => setSelectedImage(index)}
                                     className={`aspect-square rounded-lg overflow-hidden border-2 transition-all ${selectedImage === index
-                                            ? 'border-accent'
-                                            : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                                        ? 'border-accent'
+                                        : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                                         }`}
                                 >
                                     <img src={image} alt={`${product.name} ${index + 1}`} className="w-full h-full object-cover" />
@@ -168,9 +168,9 @@ export default function ProductDetail() {
 
                     {/* Stock Status */}
                     <div className="mb-6">
-                        {product.inventory.stock > 0 ? (
+                        {product.inventory > 0 ? (
                             <span className="badge-success">
-                                In Stock ({product.inventory.stock} available)
+                                In Stock ({product.inventory} available)
                             </span>
                         ) : (
                             <span className="badge-error">Out of Stock</span>
@@ -178,7 +178,7 @@ export default function ProductDetail() {
                     </div>
 
                     {/* Quantity Selector */}
-                    {product.inventory.stock > 0 && (
+                    {product.inventory > 0 && (
                         <div className="mb-6">
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Quantity</label>
                             <div className="flex items-center space-x-3">
@@ -193,7 +193,7 @@ export default function ProductDetail() {
                                 <button
                                     onClick={incrementQuantity}
                                     className="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-lg transition-colors"
-                                    disabled={quantity >= product.inventory.stock}
+                                    disabled={quantity >= product.inventory}
                                 >
                                     <Plus size={20} />
                                 </button>
@@ -205,11 +205,11 @@ export default function ProductDetail() {
                     <div className="flex space-x-4 mb-8">
                         <button
                             onClick={handleAddToCart}
-                            disabled={product.inventory.stock === 0}
+                            disabled={product.inventory === 0}
                             className="flex-1 btn-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <ShoppingCart size={20} />
-                            <span>{product.inventory.stock === 0 ? 'Out of Stock' : 'Add to Cart'}</span>
+                            <span>{product.inventory === 0 ? 'Out of Stock' : 'Add to Cart'}</span>
                         </button>
                         <button className="btn-secondary p-3">
                             <Heart size={20} />
@@ -226,7 +226,7 @@ export default function ProductDetail() {
                             </div>
                             <div className="flex justify-between">
                                 <dt className="text-gray-600 dark:text-gray-400">Category</dt>
-                                <dd className="text-gray-900 dark:text-white font-medium">{product.category}</dd>
+                                <dd className="text-gray-900 dark:text-white font-medium">{product.category.name}</dd>
                             </div>
                         </dl>
                     </div>

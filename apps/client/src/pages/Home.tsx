@@ -122,17 +122,37 @@ export default function Home() {
                     <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Shop by Category</h2>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        {['Electronics', 'Fashion', 'Home & Living', 'Sports'].map((category, index) => (
+                        {[
+                            { name: 'Electronics', image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400' },
+                            { name: 'Fashion', image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400' },
+                            { name: 'Home & Living', image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=400' },
+                            { name: 'Sports', image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400' }
+                        ].map((category, index) => (
                             <Link
                                 key={index}
                                 to="/products"
-                                className="group relative overflow-hidden rounded-lg aspect-square bg-gray-200 dark:bg-gray-800 hover:shadow-lg transition-all"
+                                className="group relative overflow-hidden rounded-lg aspect-square bg-gray-200 dark:bg-gray-800 hover:shadow-2xl transition-all duration-300"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-gray-800/80 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                {/* Background Image */}
+                                <img
+                                    src={category.image}
+                                    alt={category.name}
+                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                />
+
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-accent/80 group-hover:via-accent/40 transition-all duration-300"></div>
+
+                                {/* Category Name */}
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-white transition-colors z-10">
-                                        {category}
+                                    <h3 className="text-2xl font-bold text-white z-10 transform group-hover:scale-110 transition-transform duration-300">
+                                        {category.name}
                                     </h3>
+                                </div>
+
+                                {/* Hover Arrow */}
+                                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                    <ArrowRight className="text-white" size={24} />
                                 </div>
                             </Link>
                         ))}

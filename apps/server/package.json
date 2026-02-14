@@ -6,6 +6,7 @@
         "dev": "tsx watch src/server.ts",
         "build": "tsc",
         "start": "node dist/server.js",
+        "seed:products": "tsx src/scripts/seedProducts.ts",
         "lint": "eslint src/**/*.ts",
         "format": "prettier --write src/**/*.ts"
     },

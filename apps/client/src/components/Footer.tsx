@@ -38,11 +38,11 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Support</h3>
                         <ul className="space-y-2 text-sm">
-                            <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">FAQs</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Shipping Info</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Returns</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Track Order</a></li>
+                            <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
+                            <li><a href="/faq" className="hover:text-white transition-colors">FAQs</a></li>
+                            <li><a href="/faq" className="hover:text-white transition-colors">Shipping Info</a></li>
+                            <li><a href="/faq" className="hover:text-white transition-colors">Returns</a></li>
+                            <li><a href="/orders" className="hover:text-white transition-colors">Track Order</a></li>
                         </ul>
                     </div>
 
@@ -50,11 +50,11 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Company</h3>
                         <ul className="space-y-2 text-sm">
-                            <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                            <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                            <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="/contact" className="hover:text-white transition-colors">Careers</a></li>
+                            <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                            <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
+                            <li><a href="/contact" className="hover:text-white transition-colors">Blog</a></li>
                         </ul>
                     </div>
                 </div>

@@ -25,14 +25,28 @@ export default function Products() {
 
     const fetchProducts = async () => {
         try {
-            const params: any = { search };
+            const params: any = {};
+            if (search) params.search = search;
+
             if (sortBy) {
                 if (sortBy === 'price_asc') params.sort = 'price';
                 if (sortBy === 'price_desc') params.sort = '-price';
                 if (sortBy === 'newest') params.sort = '-createdAt';
             }
+
+            console.log('Fetching products with params:', params);
             const response = await productService.getProducts(params);
-            setProducts(response.data.products);
+            console.log('Products response:', response);
+
+            if (response.data && Array.isArray(response.data.products)) {
+                setProducts(response.data.products);
+            } else if (response.products && Array.isArray(response.products)) {
+                // Fallback if structure is different
+                setProducts(response.products);
+            } else {
+                console.error('Unexpected response structure:', response);
+                toast.error('Received invalid data from server');
+            }
         } catch (error) {
             toast.error('Failed to load products');
         } finally {
